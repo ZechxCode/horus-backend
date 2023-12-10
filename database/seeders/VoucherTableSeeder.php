@@ -17,7 +17,7 @@ class VoucherTableSeeder extends Seeder
         $voucher = [
             [
                 'nama' => 'Voucher 1',
-                'foto' => 'url1.jpg',
+                'foto' => 'https://source.unsplash.com/random',
                 'kategori' => 'Kategori_A',
                 'status' => 'unclaimed',
                 'created_at' => $dateNow,
@@ -25,7 +25,7 @@ class VoucherTableSeeder extends Seeder
             ],
             [
                 'nama' => 'Voucher 2',
-                'foto' => 'url2.jpg',
+                'foto' => 'https://source.unsplash.com/random',
                 'kategori' => 'Kategori_B',
                 'status' => 'unclaimed',
                 'created_at' => $dateNow,
@@ -33,7 +33,7 @@ class VoucherTableSeeder extends Seeder
             ],
             [
                 'nama' => 'Voucher 3',
-                'foto' => 'url3.jpg',
+                'foto' => 'https://source.unsplash.com/random',
                 'kategori' => 'Kategori_C',
                 'status' => 'claimed',
                 'created_at' => $dateNow,
@@ -41,7 +41,7 @@ class VoucherTableSeeder extends Seeder
             ],
             [
                 'nama' => 'Voucher 4',
-                'foto' => 'url4.jpg',
+                'foto' => 'https://source.unsplash.com/random',
                 'kategori' => 'Kategori_D',
                 'status' => 'claimed',
                 'created_at' => $dateNow,
@@ -49,7 +49,7 @@ class VoucherTableSeeder extends Seeder
             ],
             [
                 'nama' => 'Voucher 5',
-                'foto' => 'url5.jpg',
+                'foto' => 'https://source.unsplash.com/random',
                 'kategori' => 'Kategori_A',
                 'status' => 'unclaimed',
                 'created_at' => $dateNow,
@@ -57,7 +57,7 @@ class VoucherTableSeeder extends Seeder
             ],
             [
                 'nama' => 'Voucher 6',
-                'foto' => 'url6.jpg',
+                'foto' => 'https://source.unsplash.com/random',
                 'kategori' => 'Kategori_B',
                 'status' => 'unclaimed',
                 'created_at' => $dateNow,
@@ -65,7 +65,7 @@ class VoucherTableSeeder extends Seeder
             ],
             [
                 'nama' => 'Voucher 7',
-                'foto' => 'url7.jpg',
+                'foto' => 'https://source.unsplash.com/random',
                 'kategori' => 'Kategori_D',
                 'status' => 'unclaimed',
                 'created_at' => $dateNow,

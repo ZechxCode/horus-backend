@@ -12,10 +12,9 @@ class VoucherController extends Controller
     public function all(Request $request)
     {
         $id = $request->input('id');
-        $limit = $request->input('limit', 6);
+        // $limit = $request->input('limit', 6);
         $status = $request->input('status');
         $kategori = $request->input('kategori');
-        // $voucher = Voucher::where('status', $status)->get();
 
         if ($id) {
             $voucher = Voucher::where('id', $id)->get();
@@ -31,6 +30,25 @@ class VoucherController extends Controller
                     'data tidak ditemukan',
                     404
                 );
+        }
+
+        if ($status && $kategori) {
+            $voucher = Voucher::where('status', $status)
+                ->where('kategori', $kategori)
+                ->get();
+
+            if ($voucher->isNotEmpty()) {
+                return ResponseFormatter::success(
+                    $voucher,
+                    'Data Berhasil Ditemukan'
+                );
+            } else {
+                return ResponseFormatter::error(
+                    null,
+                    'Data tidak ditemukan',
+                    404
+                );
+            }
         }
 
         if ($kategori) {
