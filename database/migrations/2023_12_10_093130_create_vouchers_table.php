@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('kategori');
             $table->string('status');
             $table->timestamps();
-            $table->softDeletes();
+            // $table->softDeletes();
         });
     }
 

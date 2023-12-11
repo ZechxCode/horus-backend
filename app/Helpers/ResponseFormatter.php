@@ -27,7 +27,7 @@ class ResponseFormatter
     public static function success($data = null, $message = null)
     {
         self::$response['meta']['message'] = $message;
-        self::$response['meta']['count'] = count($data);
+        // self::$response['meta']['count'] = count($data);
         self::$response['data'] = $data;
 
         return response()->json(self::$response, self::$response['meta']['code']);
@@ -41,6 +41,16 @@ class ResponseFormatter
         self::$response['meta']['status'] = 'error';
         self::$response['meta']['code'] = $code;
         self::$response['meta']['message'] = $message;
+        self::$response['data'] = $data;
+
+        return response()->json(self::$response, self::$response['meta']['code']);
+    }
+
+    public static function errorServerError($data)
+    {
+        self::$response['meta']['status'] = 'Error';
+        self::$response['meta']['code'] = 500;
+        self::$response['meta']['message'] = 'Something went wrong';
         self::$response['data'] = $data;
 
         return response()->json(self::$response, self::$response['meta']['code']);

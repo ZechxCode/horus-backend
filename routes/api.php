@@ -27,3 +27,4 @@ Route::post('register', [UserController::class, 'register']);
 
 
 Route::get('voucher', [VoucherController::class, 'all']);
+Route::put('voucher/{id}', [VoucherController::class, 'updateVoucher']);

@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             VoucherTableSeeder::class,
+            Voucher_ClaimTableSeeder::class,
         ]);
     }
 }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('voucher_claims', function (Blueprint $table) {
             $table->id();
             $table->foreignId('voucher_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            // $table->foreignId('user_id')->constrained();
             $table->timestamps();
-            $table->softDeletes();
+            // $table->softDeletes();
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('voucher__claims');
+        Schema::dropIfExists('voucher_claims');
     }
 };

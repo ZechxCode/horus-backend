@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Helpers\ResponseFormatter;
 use App\Models\Voucher;
+use App\Models\VoucherClaim;
 use Illuminate\Http\Request;
+use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
+
 
 class VoucherController extends Controller
 {
@@ -87,6 +89,36 @@ class VoucherController extends Controller
                 $voucher,
                 'Data Berhasil Ditemukan'
             );
+        }
+    }
+
+    public function updateVoucher(Request $request, $id)
+    {
+
+        try {
+            $voucher = Voucher::find($id);
+            if (!$voucher) {
+                return ResponseFormatter::error(null, 'data not found', 404);
+            }
+            $status = $request->input('status');
+
+            // Assuming 'status' is a required field in the request
+            if (!$status) {
+                return ResponseFormatter::error(null, 'Status field is required', 422);
+            }
+
+            $voucher->update(['status' => $status]);
+            // $voucher->whereStatus('claimed')->get();
+            if ($status == 'claimed') {
+
+                VoucherClaim::create(['voucher_id' => $voucher->id]);
+            } elseif ($status == 'unclaimed') {
+                VoucherClaim::where('voucher_id', $voucher->id)->delete();
+            }
+
+            return ResponseFormatter::success($voucher, $status, 'success Claimed voucher');
+        } catch (\Exception $e) {
+            return ResponseFormatter::errorServerError($e->getMessage(), 'error update voucher');
         }
     }
 }
